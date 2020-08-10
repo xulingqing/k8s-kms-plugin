@@ -32,3 +32,13 @@ spec:
           value: default
         - name: P11_PIN
           value: changeme
+    - name: e2e-test
+      image: "docker.io/linggg/hsm-plugin:20200807-3"
+      imagePullPolicy: IfNotPresent
+      command:
+        - /k8s-kms-plugin
+        - test
+        - --loop=true
+      volumeMounts:
+        - mountPath: /tmp/run
+          name: socket

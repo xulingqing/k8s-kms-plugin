@@ -2,9 +2,9 @@ apiVersion: v1
 kind: Pod
 
 metadata:
-  name: k8s-kms-plugin-server
+  name: k8s-kms-plugin-server-test
   labels:
-    app.kubernetes.io/name: k8s-kms-plugin-server
+    app.kubernetes.io/name: k8s-kms-plugin-server-test
 spec:
   volumes:
     - name: certstore
@@ -18,7 +18,7 @@ spec:
       emptyDir: {}
   containers:
     - name: plugin-server
-      image: "docker.io/linggg/hsm-plugin:20200807-3"
+      image: "docker.io/linggg/hsm-plugin:lastest"
       imagePullPolicy: IfNotPresent
       volumeMounts:
         - mountPath: /certs/
